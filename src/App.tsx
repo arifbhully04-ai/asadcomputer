@@ -27,6 +27,7 @@ import { CourseEnrollModal } from './components/CourseEnrollModal';
 import { StudentIdCardModal } from './components/StudentIdCardModal';
 import { CircularDetailModal } from './components/CircularDetailModal';
 import { AuthModal } from './components/AuthModal';
+import { AllNoticesModal } from './components/AllNoticesModal';
 
 export default function App() {
   // Database & State
@@ -43,6 +44,7 @@ export default function App() {
   // Modals State
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [authDefaultTab, setAuthDefaultTab] = useState<'login' | 'register'>('login');
+  const [allNoticesModalOpen, setAllNoticesModalOpen] = useState(false);
 
   const [selectedCircularForApply, setSelectedCircularForApply] = useState<JobCircular | null>(null);
   const [selectedCircularForDetail, setSelectedCircularForDetail] = useState<JobCircular | null>(null);
@@ -152,28 +154,22 @@ export default function App() {
         </div>
       )}
 
-      {/* Navigation Bar with Distinct Page Routing */}
+      {/* Navigation Bar with Cleanly Lined Up Buttons Row */}
       <Navbar
         currentUser={currentUser}
         onOpenAuth={handleOpenAuth}
         currentPage={currentPage}
         onNavigate={handleNavigate}
         onLogout={handleLogout}
+        onOpenNotices={() => setAllNoticesModalOpen(true)}
+        noticesCount={notices.length}
       />
 
-      {/* Live Notice Ticker */}
-      <NoticeTicker notices={notices} />
-
       {/* --- MULTI-PAGE VIEW ROUTER --- */}
-      <main className="flex-1">
+      <main className="flex-1 bg-[#030712]">
         {currentPage === 'home' && (
           <HomePage
-            circulars={circulars}
-            courses={courses}
             onNavigate={handleNavigate}
-            onApplyJob={handleStartJobApply}
-            onViewJobPdf={(circ) => setSelectedCircularForDetail(circ)}
-            onEnrollCourse={handleStartEnrollCourse}
           />
         )}
 
@@ -275,8 +271,8 @@ export default function App() {
         )}
       </main>
 
-      {/* Universal Contact Footer */}
-      <ContactFooter />
+      {/* Universal Contact Footer on inner pages */}
+      {currentPage !== 'home' && <ContactFooter />}
 
       {/* --- UNIVERSAL MODALS --- */}
 
@@ -334,6 +330,14 @@ export default function App() {
         defaultTab={authDefaultTab}
         onClose={() => setAuthModalOpen(false)}
         onLoginSuccess={handleLoginSuccess}
+      />
+
+      {/* 7. Dedicated All Notices Modal */}
+      <AllNoticesModal
+        isOpen={allNoticesModalOpen}
+        onClose={() => setAllNoticesModalOpen(false)}
+        notices={notices}
+        onNavigatePage={handleNavigate}
       />
 
     </div>
