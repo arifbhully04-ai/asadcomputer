@@ -1,0 +1,6 @@
+{
+  "name": "Digital Computer Center — Job Service & Training Portal",
+  "description": "ডিজিটাল কম্পিউটার সেন্টারের অফিসিয়াল ওয়েব পোর্টাল: অনলাইন চাকরির আবেদন, নিয়োগ বিজ্ঞপ্তি, কম্পিউটার কোর্স ভর্তি এবং স্টুডেন্ট ও এডমিন ড্যাশবোর্ড।",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
