@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import jobCounterImg from '../assets/images/job_service_counter_1792522036400.jpg';
+import practiceLabImg from '../assets/images/training_practice_lab_1792524086214.jpg';
+import computerLabImg from '../assets/images/computer_training_lab_1792522036599.jpg';
 
 interface HeroSectionProps {
   onApplyClick?: () => void;
@@ -14,21 +17,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   const slides = [
     {
       id: 1,
-      image: '/src/assets/images/job_service_counter_1792522036400.jpg',
+      image: jobCounterImg,
       tag: 'অনলাইন নাগরিক সেবা',
       title: 'ভূল্লী ডিজিটাল পোস্ট অফিস ও চাকরির অনলাইন আবেদন সেবা কাউন্টার',
       subtitle: 'সরকারি, ব্যাংক ও প্রাইভেট চাকরির নির্ভুল আবেদন, ফি পেমেন্ট ও এডমিট কপি',
     },
     {
       id: 2,
-      image: '/src/assets/images/training_practice_lab_1792524086214.jpg',
+      image: practiceLabImg,
       tag: 'লাইভ প্র্যাকটিক্যাল ক্লাস',
       title: 'হাতে-কলমে কম্পিউটার টাইপিং ও গ্রাফিক্স ডিজাইন প্র্যাকটিক্যাল ক্লাস',
       subtitle: 'আসাদ কম্পিউটার ল্যাব — প্রতিটি শিক্ষার্থীর জন্য আলাদা কম্পিউটার সুবিধা',
     },
     {
       id: 3,
-      image: '/src/assets/images/computer_training_lab_1792522036599.jpg',
+      image: computerLabImg,
       tag: 'আধুনিক ল্যাবরেটরি',
       title: 'কারিগরি শিক্ষাবোর্ড অনুমোদিত কম্পিউটার অফিস অ্যাপ্লিকেশন ট্রেনিং',
       subtitle: 'এমএস ওয়ার্ড, এক্সেল, পাওয়ারপয়েন্ট ও বাংলা-ইংরেজি টাইপিং স্পিড টেস্ট',
